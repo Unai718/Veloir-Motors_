@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Veloir Motors · Importación a medida</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="./marca/favicon.png"
+    />
+    <link rel="stylesheet" href="./estilos.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <header>
+          <img src="./marca/veloir-motors.jpg" alt="Veloir Motors" />
+          
+        </header>
+        <div id="stage" aria-label="Recorrido 3D del vehículo">
+          <button
+            id="spot"
+            type="button"
+            aria-expanded="false"
+            aria-controls="spot-note"
+            hidden
+          >
+            +
+          </button>
+          <p id="spot-note" hidden></p>
+        </div>
+        <div id="display">
+          <div class="sheet" hidden>
+            <small>Expediente del vehículo</small>
+            <h2></h2>
+            <div></div>
+            <em>Ejemplo ilustrativo</em>
+          </div>
+        </div>
+        <section class="copy" aria-live="polite">
+          <span class="eyebrow" id="label"></span>
+          <h1></h1>
+          <p id="body"></p>
+          <ul id="details"></ul>
+          <button id="begin" class="primary" hidden>
+            Así lo importamos <span aria-hidden="true">↓</span>
+          </button>
+          <div id="contact" hidden>
+            <h2>¿Qué coche tienes en mente?</h2>
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/34888888888?text=Hola%2C%20Veloir%20Motors.%20Estoy%20buscando%20un%E2%80%A6"
+              >Cuéntamelo por WhatsApp ↗</a
+            >
+          </div>
+        </section>
+        <p id="status" role="status">Cargando el vehículo…</p>
+        <footer>
+          <div id="progress"></div>
+          <nav id="chapters" aria-label="Etapas de la importación">
+            <button data-step="0">Búsqueda</button
+            ><button data-step="4">Inspección</button
+            ><button data-step="8">Documentación</button
+            ><button data-step="11">Entrega</button>
+          </nav>
+          <nav aria-label="Recorrido">
+            <button id="prev">← Atrás</button
+            ><button id="next">Siguiente →</button>
+          </nav>
+        </footer>
+      </article>
+    </main>
+    <script src="./vendor/three.js"></script>
+    <script src="./recorrido.js"></script>
+  </body>
+</html>
