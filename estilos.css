@@ -428,3 +428,43 @@ button:focus-visible {
  #display .sheet p {font-size:12px;margin:4px 0;padding-top:3px;}
  #display .sheet em {margin-top:5px;}
 }
+
+/* Veloir Motors: encabezado móvil y pie de navegación */
+footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 16px 5%;
+  background: #05060a;
+  border-top: 1px solid #632239;
+}
+
+footer #progress {
+  top: -2px;
+  left: 0;
+}
+
+@media (max-width: 720px) {
+  header {
+    grid-template-columns: 1fr;
+  }
+
+  header img {
+    grid-area: 1 / 1;
+    justify-self: center;
+    width: auto;
+    max-width: 70vw;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  header .service {
+    display: none;
+  }
+
+  footer {
+    bottom: 0;
+    padding: 12px 5%;
+  }
+}
