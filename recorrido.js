@@ -158,44 +158,61 @@ function move(i) {
 $("#prev").onclick = () => move(Math.max(-1, current - 1));
 $("#next").onclick = () =>
   move(current === steps.length - 1 ? -1 : current + 1);
+
 function updateCopy() {
   const p = progress(),
     i = Math.round(p);
+
   $("#progress").style.width = (100 * (p + 1)) / steps.length + "%";
+
   if (i === current) return;
+
   current = i;
+
   const intro = i === -1;
+
   document.querySelector("article").classList.toggle("intro", intro);
   $("#begin").hidden = !intro;
   $("#contact").hidden = i !== steps.length - 1;
   $("#prev").parentElement.hidden = intro;
   $("#label").hidden = intro;
+
   let active = null;
+
   for (const b of chapters) {
     if (i >= Number(b.dataset.step)) active = b;
   }
+
   chapters.forEach((b) => {
     if (b === active) b.setAttribute("aria-current", "step");
     else b.removeAttribute("aria-current");
   });
+
   closeMarker();
   spot.hidden = true;
+
   const [label, title, body, items = [], doc] = intro ? portada : steps[i];
+
   $("#label").textContent = label;
   $("h1").textContent = title;
   $("#body").textContent = body;
+
   $("#details").replaceChildren(
     ...items.map((x) =>
       Object.assign(document.createElement("li"), { textContent: x }),
     ),
   );
+
   $("#prev").disabled = intro;
+
   $("#next").textContent =
     i === steps.length - 1 ? "Volver al inicio ↑" : "Siguiente →";
+
   $(".sheet").hidden = !doc;
 
   if (doc) {
     $(".sheet h2").textContent = doc[0];
+
     $(".sheet div").replaceChildren(
       ...doc
         .slice(1)
@@ -204,7 +221,18 @@ function updateCopy() {
         ),
     );
   }
+
+  // ANIMACIÓN DE DESLIZAMIENTO
+  const texto = document.querySelector(".copy");
+
+  texto.classList.remove("animar");
+
+  // Reinicia la animación para cada etapa
+  void texto.offsetWidth;
+
+  texto.classList.add("animar");
 }
+
 updateCopy();
 addEventListener("scroll", updateCopy, { passive: true });
 addEventListener("resize", updateCopy);

@@ -468,3 +468,44 @@ footer #progress {
     padding: 12px 5%;
   }
 }
+
+
+
+/* EFECTO DE DESLIZAMIENTO */
+
+@keyframes deslizarTexto {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.copy.animar #label {
+  animation: deslizarTexto 0.55s ease-out both;
+}
+
+.copy.animar h1 {
+  animation: deslizarTexto 0.65s ease-out 0.1s both;
+}
+
+.copy.animar #body {
+  animation: deslizarTexto 0.65s ease-out 0.25s both;
+}
+
+.copy.animar #details {
+  animation: deslizarTexto 0.65s ease-out 0.4s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy.animar #label,
+  .copy.animar h1,
+  .copy.animar #body,
+  .copy.animar #details {
+    animation: none;
+  }
+}
